@@ -11,9 +11,10 @@
  * Created on 21 de Junho de 2018, 16:30
  */
 
+#include <typeinfo>
 #include "Entity.h"
 
-Entity::Entity() {
+Entity::Entity() : ModelInfrastructure(typeid (Entity).name()) {
 	_name = "Entity " + Util::_S_generateNewIdOfType("Entity");
 	// 1:n
 	_attributeValues = new std::map<std::string, AttributeValue*>();
@@ -24,7 +25,7 @@ Entity::Entity() {
 	// ...
 }
 
-Entity::Entity(const Entity& orig) {
+Entity::Entity(const Entity& orig) : ModelInfrastructure(orig) {
 }
 
 Entity::~Entity() {
@@ -34,3 +35,14 @@ std::map<std::string, AttributeValue*>* Entity::getAttributeValues() const {
 	return _attributeValues;
 }
 
+void Entity::setEntityTypeName(std::string _entityTypeName) {
+	this->_entityTypeName = _entityTypeName;
+}
+
+std::string Entity::getEntityTypeName() const {
+	return _entityTypeName;
+}
+
+std::string Entity::show() {
+	return ModelInfrastructure::show()+",entityTypeName="+this->_entityTypeName;
+}

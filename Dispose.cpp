@@ -15,13 +15,17 @@
 #include "Model.h"
 
 Dispose::Dispose(Model* model):SinkModelComponent(model) {
-	_name = "Dispose "+Util::_S_generateNewIdOfType("Dispose");
+	_name = "Dispose "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
 }
 
 Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {
 }
 
 Dispose::~Dispose() {
+}
+
+std::string Dispose::show() {
+	return SinkModelComponent::show();
 }
 
 void Dispose::_execute(Entity* entity) {

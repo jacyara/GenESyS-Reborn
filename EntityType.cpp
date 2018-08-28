@@ -12,22 +12,21 @@
  */
 
 #include "EntityType.h"
-#include "Collector.h"
-#include "CollectorImpl1.h" /////
+#include "CollectorMyImpl1.h" /////
 #include "Traits.h"
 
-EntityType::EntityType() {
+EntityType::EntityType(): ModelInfrastructure(typeid(this).name()) {
 	//Collector_if _coll = Traits<Collector_if>::Collector_Impl(); // uses the Collector implementation defined in Traits
 	
 	//Collector_if* _cstatWaitingTime = new Collector(new Traits<Collector_if>::Collector());
-	Collector_if* _cstatTransferTime = new CollectorImpl1();
+	Collector_if* _cstatTransferTime = new Traits<Collector_if>::Implementation();
 	Collector_if* _cstatOtherTime;
 	Collector_if* _cstatVATime;
 	Collector_if* _cstatNVATime;
 	Collector_if* _cstatTimeInSystem;
 }
 
-EntityType::EntityType(const EntityType& orig) {
+EntityType::EntityType(const EntityType& orig):ModelInfrastructure(orig) {
 }
 
 EntityType::~EntityType() {

@@ -21,7 +21,8 @@
 #include "ModelInfrastructure.h"
 #include "Event.h"
 #include "Listener.h"
-#include "Collector_if.h"
+#include "ModelChecker_if.h"
+#include "Parser_if.h"
 
 class Simulator;
 
@@ -64,14 +65,16 @@ public: // gets and sets
 	void setPauseOnReplication(bool _pauseBetweenReplications);
 	bool isPauseOnReplication() const;
 public: // only gets	
-	double getSimulationTime() const;
+	double getSimulatedTime() const;
 	bool isRunning() const;
 	bool isSaved() const;
 	Util::identitifcation getId() const;
 	List<ModelComponent*>* getComponents() const;
-	List<ModelInfrastructure*>* getInfrastructures() const;
-    List<Entity*>* getEntities() const;
     List<Event*>* getEvents() const;
+	List<Entity*>* getEntities() const;
+	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;
+	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
+	ModelInfrastructure* getInfrastructure(std::string infraTypename, std::string name);
 public: // simulation control
 	void startSimulation();
 	void pauseSimulation();
@@ -105,11 +108,6 @@ private: // simulation control
 	void _showReplicationStatistics();
 	void _showSimulationStatistics();
 private:
-	bool _checkAndAddInternalLiterals();
-	bool _checkConnected();
-	bool _checkSymbols();
-	bool _checkPathway();
-	bool _checkActivationCode();
 	bool _finishReplicationCondition();
 private:
 	std::list<traceListener>* _traceListeners = new std::list<traceListener>();
@@ -152,15 +150,15 @@ private: // read only public access (gets)
 	bool _saved = false;
 	// 1:n
 	List<ModelComponent*>* _components;
-	// infrastructures
-	List<ModelInfrastructure*>* _infrastructures;
-	List<Entity*>* _entities;
 	List<Event*>* _events;
-	List<Collector_if*>* _collectors;
+	// infrastructures
+	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
+
 
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
 	bool _pauseRequested = false;
+	bool _stopRequested = false;
 	bool _simulationIsInitiated = false;
 	bool _replicationIsInitiaded = false;
 	std::exception* _excepcionHandled = nullptr; 
@@ -170,6 +168,8 @@ private: // no public access (no gets / sets)
 	// needed?
 	Entity* _currentEntity;
 	ModelComponent* _currentComponent;
+	Parser_if* _parser;
+	ModelChecker_if* _modelChecker;
 };
 
 #endif /* SIMULATIONMODEL_H */
