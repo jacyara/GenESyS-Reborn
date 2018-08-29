@@ -18,6 +18,7 @@
 
 class Fitter_if {
 public:
+	virtual bool isNormalDistributed(double confidencelevel) = 0; 
 	virtual void fitUniform (double *sqrerror, double *min, double *max) = 0;
 	virtual void fitTriangular (double *sqrerror, double *min, double *mo, double *max) = 0;
 	virtual void fitNormal (double *sqrerror, double *avg, double *stddev) = 0;
@@ -26,6 +27,9 @@ public:
 	virtual void fitBeta (double *sqrerror, double *a, double *b, double *offset,double *mult) = 0;
 	virtual void fitWeibull (double *sqrerror, double *a, double *b, double *offset, double *mult) = 0;
 	virtual void fitAll (double *sqrerror, std::string *name) = 0;
+public:
+	virtual void setDataFilename(std::string dataFilename) = 0;
+	virtual std::string getDataFilename() = 0;
 };
 
 #endif /* FITTER_IF_H */

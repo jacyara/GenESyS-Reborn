@@ -4,69 +4,106 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
-      <itemPath>Analyser.h</itemPath>
-      <itemPath>AttributeValue.h</itemPath>
-      <itemPath>Collector.h</itemPath>
-      <itemPath>CollectorImpl1.h</itemPath>
-      <itemPath>Collector_if.h</itemPath>
-      <itemPath>Create.h</itemPath>
-      <itemPath>Delay.h</itemPath>
-      <itemPath>Dispose.h</itemPath>
-      <itemPath>Entity.h</itemPath>
-      <itemPath>EntityType.h</itemPath>
-      <itemPath>Event.h</itemPath>
-      <itemPath>Fitter.h</itemPath>
-      <itemPath>Fitter_if.h</itemPath>
-      <itemPath>Integrator.h</itemPath>
-      <itemPath>Integrator_if.h</itemPath>
-      <itemPath>List.h</itemPath>
-      <itemPath>Listener.h</itemPath>
-      <itemPath>MMC.h</itemPath>
-      <itemPath>MMC_if.h</itemPath>
-      <itemPath>Model.h</itemPath>
-      <itemPath>ModelComponent.h</itemPath>
-      <itemPath>ModelInfrastructure.h</itemPath>
-      <itemPath>OldEventObserv.h</itemPath>
-      <itemPath>OldObservable.h</itemPath>
-      <itemPath>OldObserver.h</itemPath>
-      <itemPath>Plugin.h</itemPath>
-      <itemPath>Simulator.h</itemPath>
-      <itemPath>SinkModelComponent.h</itemPath>
-      <itemPath>SourceModelComponent.h</itemPath>
-      <itemPath>Statistics.h</itemPath>
-      <itemPath>Statistics_if.h</itemPath>
-      <itemPath>Traits.h</itemPath>
-      <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
-      <itemPath>Analyser.cpp</itemPath>
-      <itemPath>AttributeValue.cpp</itemPath>
-      <itemPath>CollectorImpl1.cpp</itemPath>
-      <itemPath>Create.cpp</itemPath>
-      <itemPath>Delay.cpp</itemPath>
-      <itemPath>Dispose.cpp</itemPath>
-      <itemPath>Entity.cpp</itemPath>
-      <itemPath>EntityType.cpp</itemPath>
-      <itemPath>Event.cpp</itemPath>
-      <itemPath>Listener.cpp</itemPath>
-      <itemPath>Model.cpp</itemPath>
-      <itemPath>ModelComponent.cpp</itemPath>
-      <itemPath>ModelInfrastructure.cpp</itemPath>
-      <itemPath>OldEventObserv.cpp</itemPath>
-      <itemPath>OldObservable.cpp</itemPath>
-      <itemPath>OldObserver.cpp</itemPath>
-      <itemPath>Plugin.cpp</itemPath>
-      <itemPath>Simulator.cpp</itemPath>
-      <itemPath>SinkModelComponent.cpp</itemPath>
-      <itemPath>SourceModelComponent.cpp</itemPath>
-      <itemPath>Util.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de Recurso"
                    projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="f2" displayName="Components" projectFiles="true">
+      <itemPath>Create.cpp</itemPath>
+      <itemPath>Create.h</itemPath>
+      <itemPath>Delay.cpp</itemPath>
+      <itemPath>Delay.h</itemPath>
+      <itemPath>Dispose.cpp</itemPath>
+      <itemPath>Dispose.h</itemPath>
+      <itemPath>Release.cpp</itemPath>
+      <itemPath>Release.h</itemPath>
+      <itemPath>Seize.cpp</itemPath>
+      <itemPath>Seize.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f9"
+                   displayName="Configuration"
+                   projectFiles="true"
+                   kind="ROOT">
+      <itemPath>Traits.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
+      <itemPath>AttributeValue.cpp</itemPath>
+      <itemPath>AttributeValue.h</itemPath>
+      <itemPath>Entity.cpp</itemPath>
+      <itemPath>Entity.h</itemPath>
+      <itemPath>EntityType.cpp</itemPath>
+      <itemPath>EntityType.h</itemPath>
+      <itemPath>Queue.cpp</itemPath>
+      <itemPath>Queue.h</itemPath>
+      <itemPath>Resource.cpp</itemPath>
+      <itemPath>Resource.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f1" displayName="Kernel" projectFiles="true">
+      <itemPath>Event.cpp</itemPath>
+      <itemPath>Event.h</itemPath>
+      <itemPath>Model.cpp</itemPath>
+      <itemPath>Model.h</itemPath>
+      <itemPath>ModelCheckerMyImpl1.cpp</itemPath>
+      <itemPath>ModelCheckerMyImpl1.h</itemPath>
+      <itemPath>ModelChecker_if.h</itemPath>
+      <itemPath>ModelComponent.cpp</itemPath>
+      <itemPath>ModelComponent.h</itemPath>
+      <itemPath>ModelInfrastructure.cpp</itemPath>
+      <itemPath>ModelInfrastructure.h</itemPath>
+      <itemPath>Plugin.cpp</itemPath>
+      <itemPath>Plugin.h</itemPath>
+      <itemPath>Simulator.cpp</itemPath>
+      <itemPath>Simulator.h</itemPath>
+      <itemPath>SinkModelComponent.cpp</itemPath>
+      <itemPath>SinkModelComponent.h</itemPath>
+      <itemPath>SourceModelComponent.cpp</itemPath>
+      <itemPath>SourceModelComponent.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f7" displayName="Not Used" projectFiles="true">
+      <itemPath>Listener.cpp</itemPath>
+      <itemPath>Listener.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f3" displayName="Parser" projectFiles="true">
+      <itemPath>ParserMyImpl1.cpp</itemPath>
+      <itemPath>ParserMyImpl1.h</itemPath>
+      <itemPath>Parser_if.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f5" displayName="Shell" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="f8" displayName="Tools" projectFiles="true">
+      <itemPath>CollectorMyImpl1.cpp</itemPath>
+      <itemPath>CollectorMyImpl1.h</itemPath>
+      <itemPath>Collector_if.h</itemPath>
+      <itemPath>FitterMyImpl1.cpp</itemPath>
+      <itemPath>FitterMyImpl1.h</itemPath>
+      <itemPath>Fitter_if.h</itemPath>
+      <itemPath>HypothesisTesterMyImpl1.cpp</itemPath>
+      <itemPath>HypothesisTesterMyImpl1.h</itemPath>
+      <itemPath>HypothesisTester_if.h</itemPath>
+      <itemPath>IntegratorMyImpl1.cpp</itemPath>
+      <itemPath>IntegratorMyImpl1.h</itemPath>
+      <itemPath>Integrator_if.h</itemPath>
+      <itemPath>ProbDistrib.cpp</itemPath>
+      <itemPath>ProbDistrib.h</itemPath>
+      <itemPath>SamplerMyImpl1.cpp</itemPath>
+      <itemPath>SamplerMyImpl1.h</itemPath>
+      <itemPath>Sampler_if.h</itemPath>
+      <itemPath>StatisticsMyImpl1.cpp</itemPath>
+      <itemPath>StatisticsMyImpl1.h</itemPath>
+      <itemPath>Statistics_if.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f6" displayName="Util" projectFiles="true">
+      <itemPath>LinkedBy.cpp</itemPath>
+      <itemPath>LinkedBy.h</itemPath>
+      <itemPath>List.h</itemPath>
+      <itemPath>Util.cpp</itemPath>
+      <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Arquivos de Teste"
@@ -93,19 +130,13 @@
           <commandLine>-std=c++11 -fpermissive</commandLine>
         </ccTool>
       </compileType>
-      <item path="Analyser.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Analyser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Collector.h" ex="false" tool="3" flavor2="0">
+      <item path="CollectorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="CollectorImpl1.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorImpl1.h" ex="false" tool="3" flavor2="0">
+      <item path="CollectorMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -133,13 +164,27 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Fitter.h" ex="false" tool="3" flavor2="0">
+      <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Integrator.h" ex="false" tool="3" flavor2="0">
+      <item path="HypothesisTesterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IntegratorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IntegratorMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="LinkedBy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="LinkedBy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -147,13 +192,15 @@
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MMC.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="MMC_if.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Model.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelCheckerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelCheckerMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelChecker_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -163,21 +210,41 @@
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="OldEventObserv.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="OldEventObserv.h" ex="false" tool="3" flavor2="0">
+      <item path="ParserMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="OldObservable.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObservable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldObserver.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObserver.h" ex="false" tool="3" flavor2="0">
+      <item path="Parser_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ProbDistrib.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Queue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Release.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Release.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Resource.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SamplerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -191,7 +258,9 @@
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -224,19 +293,13 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Analyser.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Analyser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Collector.h" ex="false" tool="3" flavor2="0">
+      <item path="CollectorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="CollectorImpl1.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorImpl1.h" ex="false" tool="3" flavor2="0">
+      <item path="CollectorMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -264,13 +327,27 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Fitter.h" ex="false" tool="3" flavor2="0">
+      <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Integrator.h" ex="false" tool="3" flavor2="0">
+      <item path="HypothesisTesterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IntegratorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IntegratorMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="LinkedBy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="LinkedBy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -278,13 +355,15 @@
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MMC.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="MMC_if.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Model.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelCheckerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelCheckerMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelChecker_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -294,21 +373,41 @@
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="OldEventObserv.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="OldEventObserv.h" ex="false" tool="3" flavor2="0">
+      <item path="ParserMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="OldObservable.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObservable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldObserver.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObserver.h" ex="false" tool="3" flavor2="0">
+      <item path="Parser_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ProbDistrib.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Queue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Release.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Release.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Resource.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SamplerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -322,7 +421,9 @@
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
       </item>

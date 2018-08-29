@@ -15,7 +15,7 @@
 #include "Model.h"
 
 Create::Create(Model* model):SourceModelComponent(model) {
-	_name = "Create "+Util::_S_generateNewIdOfType("Create");
+	_name = "Create "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
 }
 
 Create::Create(const Create& orig):SourceModelComponent(orig) {
@@ -35,7 +35,7 @@ void Create::_execute(Entity* entity) {
 		(*it)->second->setValue(this->_model->getSimulationTime());
 	}
 	*/
-	double tnow = _model->getSimulationTime();
+	double tnow = _model->getSimulatedTime();
 	entity->getAttributeValues()->find("Entity.ArrivalTime")->second->setValue(tnow);
 	double timeBetweenCreations, timeScale, newArrivalTime;
 	for (unsigned int i=0; i<this->_entitiesPerCreation; i++) {
@@ -47,7 +47,7 @@ void Create::_execute(Entity* entity) {
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);
-		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, tnow, entity, this, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
+		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, tnow, entity, this, "Arrival of entity "+std::to_string(newEntity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 		//_model->trace(Util::TraceLevel::TL_blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);

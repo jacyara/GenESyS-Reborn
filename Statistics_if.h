@@ -14,10 +14,12 @@
 #ifndef STATISTICS_IF_H
 #define STATISTICS_IF_H
 
+#include <string>
+
 class Statistics_if {
 public: // get & set
-    virtual void setFilename(std::string _filename) = 0;
-    virtual std::string getFilename() const = 0;
+    virtual void setDataFilename(std::string _filename) = 0;
+    virtual std::string getDataFilename() const = 0;
 public:
 	virtual unsigned int numElements() = 0;
 	virtual double min() = 0;
@@ -28,14 +30,15 @@ public:
 	virtual double variance() = 0;
 	virtual double stddeviation() = 0;
 	virtual double variationCoef() = 0;
-	virtual double halfWidth(double alpha) = 0;
+	virtual double halfWidthConfidenceInterval(double confidencelevel) = 0;
+	virtual unsigned int newSampleSize(double confidencelevel, double halfWidth) = 0;
 	virtual double quartil(unsigned short num) = 0;
 	virtual double decil(unsigned short num) = 0;
 	virtual double centil(unsigned short num) = 0;
 	virtual void setHistogramNumClasses(unsigned short num) = 0;
 	virtual unsigned short histogramNumClasses() = 0;
 	virtual double histogramClassLowerLimit(unsigned short classNum) = 0;
-	virtual double histogramClassFrequency(unsigned short classNum) = 0;
+	virtual unsigned int histogramClassFrequency(unsigned short classNum) = 0;
 };
 
 #endif /* STATISTICS_IF_H */
