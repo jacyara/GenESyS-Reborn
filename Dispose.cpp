@@ -15,7 +15,7 @@
 #include "Model.h"
 
 Dispose::Dispose(Model* model):SinkModelComponent(model) {
-	_name = "Dispose "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
+	_name = "Dispose "+std::to_string(Util::GenerateNewIdOfType<Dispose>());
 }
 
 Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {
@@ -25,7 +25,16 @@ Dispose::~Dispose() {
 }
 
 std::string Dispose::show() {
-	return SinkModelComponent::show();
+	return SinkModelComponent::show()+
+			",collectStatistics="+std::to_string(this->_collectStatistics);
+}
+
+void Dispose::setCollectStatistics(bool _collectStatistics) {
+	this->_collectStatistics = _collectStatistics;
+}
+
+bool Dispose::isCollectStatistics() const {
+	return _collectStatistics;
 }
 
 void Dispose::_execute(Entity* entity) {
@@ -34,11 +43,11 @@ void Dispose::_execute(Entity* entity) {
 
 
 
-void Dispose::_readComponent(std::list<std::string> words) {
+void Dispose::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Dispose::_writeComponent() {
+std::list<std::string>* Dispose::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	return words;
 

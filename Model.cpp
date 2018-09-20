@@ -25,7 +25,7 @@ bool EventCompare(const Event* a, const Event * b) {
 
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
-	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
+	_name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>()); // (reinterpret_cast<unsigned long> (this));
 	// 1:1
 	_parser = new Traits<Parser_if>::Implementation(this);
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
@@ -33,15 +33,15 @@ Model::Model(Simulator* simulator) {
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
-		return a->getId() < b->getId();
+		return a->getId() < b->getId(); /// Components are sorted by ID
 	});
-	_events = new List<Event*>();
+	_events = new List<Event*>(); /// The future events list must be chronologicaly sorted
 	//_events->setSortFunc(&EventCompare); // It works too
 	_events->setSortFunc([](const Event* a, const Event * b) {
-		return a->getTime() < b->getTime();
+		return a->getTime() < b->getTime(); /// Events are sorted chronologically
 	});
 
-	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>();
+	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>(); /// Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
 	/*
 	_infrastructures = new List<ModelInfrastructure*>();
 	_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
@@ -92,7 +92,7 @@ bool Model::_finishReplicationCondition() {
 }
 
 void Model::startSimulation() {
-	if (!this->check()) {
+	if (!this->checkModel()) {
 		trace(Util::TraceLevel::TL_errors, "Model check failed");
 		return;
 	}
@@ -209,15 +209,43 @@ void Model::_processEvent(Event* event) {
 	}
 }
 
+void Model::_showModel() {
+	trace(Util::TraceLevel::TL_mostDetailed, "Simulation Model:");
+	std::list<ModelComponent*>* list = getComponents()->getList();
+	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
+		trace(Util::TraceLevel::TL_mostDetailed, "   "+(*it)->show()); ////
+	}
+}
+
+void Model::_showInfrastructures() {
+	trace(Util::TraceLevel::TL_mostDetailed, "Model Infrastructures:");
+	//std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
+	std::string key;
+	List<ModelInfrastructure*>* list;
+	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator infraIt = _infrastructures->begin(); infraIt != _infrastructures->end(); infraIt++) {
+		key = (*infraIt).first;
+		trace(Util::TraceLevel::TL_mostDetailed, "   "+key+":");
+		list = (*infraIt).second;
+		for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!= list->getList()->end(); it++) {
+			trace(Util::TraceLevel::TL_mostDetailed, "      "+(*it)->show()); 
+		}
+	}
+}
+
 void Model::_showReplicationStatistics() {
 }
 
 void Model::_showSimulationStatistics() {
 }
 
-bool Model::check() {
+bool Model::checkModel() {
 	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
-	return this->_modelChecker->checkAll();
+	bool res = this->_modelChecker->checkAll();
+	/* todo: remove show model and infra from here*/
+	this->_showModel();
+	this->_showInfrastructures();
+	//
+	return res;
 }
 
 bool Model::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
@@ -481,6 +509,14 @@ ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, Util::i
 	return nullptr;
 }
 
+std::list<std::string>* Model::getInfrastructureTypenames() const {
+	std::list<std::string>* keys = new std::list<std::string>();
+	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator it= _infrastructures->begin(); it!=_infrastructures->end(); it++) {
+		keys->insert(keys->end(), (*it).first);
+	}
+	return keys;
+}
+
 ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::string name) {
 	List<ModelInfrastructure*>* list = getInfrastructures(infraTypename);
 	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
@@ -492,7 +528,7 @@ ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::st
 }
 
 List<Entity*>* Model::getEntities() const {
-	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(typeid (Entity).name())); // static_cast ??
+	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(Util::TypeOf<Entity>())); // static_cast ??
 	return ents;
 }
 

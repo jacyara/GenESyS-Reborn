@@ -13,20 +13,10 @@
 
 #include "Create.h"
 #include "Model.h"
-
-/*
-std::string Create::COMPONENT_KIND = "";
-std::string Create::COMPONENT_AUTHOR = "";
-std::string Create::COMPONENT_VERSION = "";
-std::string Create::COMPONENT_DESCRIPTION = "";
-std::string Create::COMPONENT_IS_VISUAL = "";
-std::string Create::COMPONENT_IS_SOURCE = "";
-std::string Create::COMPONENT_IS_SINK = "";
-std::string Create::COMPONENT_DEPENDENCES = "";
-*/
+#include <typeinfo>
 
 Create::Create(Model* model) : SourceModelComponent(model) {
-	_name = "Create " + std::to_string(Util::_S_generateNewIdOfType(typeid (this).name()));
+	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>()); 
 }
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {
@@ -54,7 +44,7 @@ void Create::_execute(Entity* entity) {
 		Entity* newEntity = new Entity();
 		_model->getEntities()->insert(newEntity);
 		timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
-		timeScale = Util::_S_timeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLengthTimeUnit());
+		timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLengthTimeUnit());
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);
@@ -64,13 +54,13 @@ void Create::_execute(Entity* entity) {
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 
-void Create::_readComponent(std::list<std::string> words) {
+void Create::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Create::_writeComponent() {
+std::list<std::string>* Create::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
-	words->insert(words->end(), typeid(this).name());
+	words->insert(words->end(), Util::TypeOf<Create>());
 	words->insert(words->end(), std::to_string(this->_collectStatistics));
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
 	words->insert(words->end(), (this->_entityType));
