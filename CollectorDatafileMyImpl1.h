@@ -15,10 +15,15 @@
 #define COLLECTORDATAFILEMYIMPL1_H
 
 #include "CollectorDatafile_if.h"
+#include <fstream>
+#include <string>
+#include <vector>
+#include <iostream>
 
 class CollectorDatafileMyImpl1 : public CollectorDatafile_if {
 public:
 	CollectorDatafileMyImpl1();
+	CollectorDatafileMyImpl1(std::string fileName);
 	CollectorDatafileMyImpl1(const CollectorDatafileMyImpl1& orig);
 	~CollectorDatafileMyImpl1();
 public:
@@ -32,6 +37,7 @@ public:
 	void setDataFilename(std::string filename);
 
 private:
+std::string file_name;
 
 };
 

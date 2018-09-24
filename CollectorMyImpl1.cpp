@@ -13,6 +13,8 @@
 
 #include "CollectorMyImpl1.h"
 
+std::vector<double> data;
+
 CollectorMyImpl1::CollectorMyImpl1() {
 }
 
@@ -37,4 +39,27 @@ double CollectorMyImpl1::getLastValue() {
 
 unsigned int CollectorMyImpl1::numElements() {
 	return this->_numElements;
+}
+
+double CollectorMyImpl1::media() {
+	int i;
+	double media;
+	double mediaFinal;
+	for(i = 0; i <= data.size(); i++ ) {
+		media = media + data[i];
+		mediaFinal = media/data.size();
+	}
+	return mediaFinal;
+}
+
+double CollectorMyImpl1::desvioPadrao() {
+	int i;
+	double soma;
+	double media;
+	for(i = 0; i <= data.size(); i++ ) {
+		soma = soma + ((data[i] - media)*(data[i] - media));
+	}
+	double variancia = soma/data.size();
+	double desvio = sqrt(variancia);
+	return desvio;
 }

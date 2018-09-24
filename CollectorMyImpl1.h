@@ -14,7 +14,13 @@
 #ifndef COLLECTORMYIMPL1_H
 #define COLLECTORMYIMPL1_H
 
+#include "CollectorDatafile_if.h"
+#include <fstream>
 #include <string>
+#include <vector>
+#include <iostream>
+#include <math.h>
+
 #include "Collector_if.h"
 
 class CollectorMyImpl1 : public Collector_if {
@@ -27,7 +33,8 @@ public:
 	void addValue(double value);
 	double getLastValue();
 	unsigned int numElements();
-
+	double media();
+	double desvioPadrao();
 private:
 	double _lastValue;
 	unsigned int _numElements = 0;

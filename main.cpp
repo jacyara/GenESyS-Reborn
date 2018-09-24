@@ -210,8 +210,16 @@ void testStudentSoftwareDevelopments() {
  * 
  */
 int main(int argc, char** argv) {
+	
+	if(argv[1] == NULL )
+	{
+		printf("Erro\n");
+		exit(0);
+	}
+	CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1(argv[1]);
+	//CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1();
 	// uncomment bellow to execute a simulation
-	buildSimulationSystem();
+	//buildSimulationSystem();
 	
 	//command shell
 	//build_command_shell();
