@@ -20,14 +20,23 @@
 #include <vector>
 #include <iostream>
 #include <math.h>
+#include <iostream>
+#include <vector>
+#include <algorithm> 
+#include <iterator> 
 
 #include "Collector_if.h"
+#include "CollectorDatafileMyImpl1.h"
+#include <stdio.h>
+#include <string.h>
+
 
 class CollectorMyImpl1 : public Collector_if {
 public:
 	CollectorMyImpl1();
 	CollectorMyImpl1(const CollectorMyImpl1& orig);
 	~CollectorMyImpl1();
+	CollectorMyImpl1(std::string fileName);
 public:
 	void clear();
 	void addValue(double value);
@@ -35,6 +44,8 @@ public:
 	unsigned int numElements();
 	double media();
 	double desvioPadrao();
+	double minValue();
+	double maxValue();
 private:
 	double _lastValue;
 	unsigned int _numElements = 0;

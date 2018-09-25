@@ -12,14 +12,16 @@
  */
 
 #include "CollectorDatafileMyImpl1.h"
+using namespace std;
 
-std::vector<double> data;
+vector<double> data;
 std::string fileName;
 
 CollectorDatafileMyImpl1::CollectorDatafileMyImpl1() {}
 
-CollectorDatafileMyImpl1::CollectorDatafileMyImpl1(std::string nameFile) {
-    std::ifstream infile(nameFile);
+CollectorDatafileMyImpl1::CollectorDatafileMyImpl1(std::string fileName) {
+    std::ifstream infile(fileName);
+    fileName = fileName;
     std::string line;
     while (std::getline(infile, line)) {
         data.push_back(std::stod(line));
@@ -30,6 +32,7 @@ CollectorDatafileMyImpl1::CollectorDatafileMyImpl1(std::string nameFile) {
 }
 
 CollectorDatafileMyImpl1::CollectorDatafileMyImpl1(const CollectorDatafileMyImpl1& orig) {
+    memcpy(this, &orig, sizeof(CollectorDatafileMyImpl1));
 }
 
 CollectorDatafileMyImpl1::~CollectorDatafileMyImpl1() {
@@ -37,6 +40,10 @@ CollectorDatafileMyImpl1::~CollectorDatafileMyImpl1() {
 
 void CollectorDatafileMyImpl1::clear() {
     data.clear();
+}
+
+vector<double> CollectorDatafileMyImpl1::getVector() {
+    return data;
 }
 
 void CollectorDatafileMyImpl1::addValue(double value) {
@@ -59,6 +66,13 @@ std::string CollectorDatafileMyImpl1::getDataFilename() {
     return fileName;
 }
 
-void CollectorDatafileMyImpl1::setDataFilename(std::string filename) {
-    
+void CollectorDatafileMyImpl1::setDataFilename(std::string newFileName) {
+    int result;
+    char nomeAntigo[] = {char(fileName.c_str())};
+    char novoNome[] = {char(newFileName.c_str())};
+    result = rename(nomeAntigo, novoNome);
+    if ( result == 0 )
+        puts ( "Arquivo renomeado" );
+    else
+        perror( "Erro renomeando arquivo" );  
 }

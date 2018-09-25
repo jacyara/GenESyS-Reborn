@@ -216,10 +216,13 @@ int main(int argc, char** argv) {
 		printf("Erro\n");
 		exit(0);
 	}
-	CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1(argv[1]);
-	CollectorMyImpl1* coletorData = new CollectorMyImpl1();
+	// CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1();
+	// coletor->setDataFilename("Teste.txt");
+	CollectorMyImpl1* coletorData = new CollectorMyImpl1(argv[1]);
 	coletorData->media();
 	coletorData->desvioPadrao();
+	coletorData->minValue();
+	coletorData->maxValue();
 	//CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1();
 	// uncomment bellow to execute a simulation
 	//buildSimulationSystem();

@@ -19,6 +19,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <stdio.h>
+#include <string.h>
+using namespace std;
 
 class CollectorDatafileMyImpl1 : public CollectorDatafile_if {
 public:
@@ -32,9 +35,10 @@ public:
 	double getLastValue();
 	unsigned int numElements();
 public:
+	vector<double> getVector();
 	double getValue(unsigned int num);
 	std::string getDataFilename();
-	void setDataFilename(std::string filename);
+	void setDataFilename(std::string newFileName);
 
 private:
 std::string fileName;
