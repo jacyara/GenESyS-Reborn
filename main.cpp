@@ -217,6 +217,9 @@ int main(int argc, char** argv) {
 		exit(0);
 	}
 	CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1(argv[1]);
+	CollectorMyImpl1* coletorData = new CollectorMyImpl1();
+	coletorData->media();
+	coletorData->desvioPadrao();
 	//CollectorDatafileMyImpl1* coletor = new CollectorDatafileMyImpl1();
 	// uncomment bellow to execute a simulation
 	//buildSimulationSystem();

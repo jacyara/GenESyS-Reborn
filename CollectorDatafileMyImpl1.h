@@ -37,7 +37,7 @@ public:
 	void setDataFilename(std::string filename);
 
 private:
-std::string file_name;
+std::string fileName;
 
 };
 

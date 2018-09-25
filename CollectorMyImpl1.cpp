@@ -13,9 +13,11 @@
 
 #include "CollectorMyImpl1.h"
 
-std::vector<double> data;
+std::vector<double> vetor;
 
 CollectorMyImpl1::CollectorMyImpl1() {
+	vetor.push_back(40);
+	vetor.push_back(20);
 }
 
 CollectorMyImpl1::CollectorMyImpl1(const CollectorMyImpl1& orig) {
@@ -43,23 +45,32 @@ unsigned int CollectorMyImpl1::numElements() {
 
 double CollectorMyImpl1::media() {
 	int i;
-	double media;
+	double soma;
 	double mediaFinal;
-	for(i = 0; i <= data.size(); i++ ) {
-		media = media + data[i];
-		mediaFinal = media/data.size();
+	for(i = 0; i < vetor.size(); i++ ) {
+		soma = soma + vetor[i];
 	}
+	mediaFinal = soma/vetor.size();
+	printf("\n Media do conjunto = %lf \n", mediaFinal);
 	return mediaFinal;
 }
 
 double CollectorMyImpl1::desvioPadrao() {
 	int i;
 	double soma;
+	double somaMedia;
 	double media;
-	for(i = 0; i <= data.size(); i++ ) {
-		soma = soma + ((data[i] - media)*(data[i] - media));
+	for(i = 0; i < vetor.size(); i++ ) {
+		somaMedia = somaMedia + vetor[i];
 	}
-	double variancia = soma/data.size();
+	media = somaMedia/vetor.size();
+	for(i = 0; i < vetor.size(); i++ ) {
+		soma = soma + ((vetor[i] - media)*(vetor[i] - media));
+		printf("\n Soma = %lf \n", soma);
+	}
+	double variancia = soma/vetor.size();
 	double desvio = sqrt(variancia);
+	printf("\n Vetor size = %i \n", vetor.size());
+	printf("\n Desvio padrão = %lf \n", desvio);
 	return desvio;
 }
